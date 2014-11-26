@@ -1,0 +1,44 @@
+#include <iostream>
+#include <deque>
+using namespace std;
+
+int main()
+{
+	int time = 0;
+	int cur_time = 1;
+	cin >> time;
+	bool **grid = new bool*[100];
+	for(int i = 0; i < 100; i++)
+	{
+		grid[i] = new bool[100];
+	}
+	
+	bool current;
+	int x = 0;
+	int y = 0;
+	int cur_time = 1;
+	int level = 0; // %2 = 0: down, right %2 = 1: up, left
+	while(cur_time != time)
+	{
+		if(level % 2 == 0)
+		{
+			if(grid[x][y+1] != true)
+			{
+				grid[x][y++] = true;
+				current_time++;
+			}
+			if(grid[x+1][y]
+			grid[x++][y] = true;
+			current_time++;
+			grid[x][y--] = true;
+			current_time++;
+		}else
+		{
+			
+		}
+		level++;
+	}
+}
+
+
+

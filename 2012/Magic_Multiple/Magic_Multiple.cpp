@@ -1,0 +1,83 @@
+#include <iostream>
+#include <cstdio>
+#include <sstream>
+#include <string>
+#include <stdlib.h>
+using namespace std;
+
+int main()
+{
+	long int n = 0;
+	int next = 1;
+	cin >> n;
+	string parse; 
+	stringstream ss;
+	bool checked[10];
+	for(int i =0; i < 10; i++)
+	{
+		checked[i] = false;
+	}
+	while(n != EOF)
+	{
+		ss << n;
+		parse = ss.str();
+		ss.str("");;
+		next = 1;
+		for(int j =0; j < 10; j++)
+		{
+			checked[j] = false;
+		}
+
+		while(!(checked[0] && checked[1]  && checked[2]  && checked[3] && checked[4] && checked[5] && checked[6] && checked[7] && checked[8] && checked[9]))
+		{
+			ss.str("");
+			ss << (n*next);
+			parse.clear();
+			parse = ss.str();
+			for(int i = 0; i < parse.length(); i++)
+			{
+				if(parse[i] == '0')
+				{
+					checked[0] = true;
+				}else if(parse[i] == '1')
+				{
+					checked[1] = true;
+				}else if(parse[i] == '2')
+				{
+					checked[2] = true;
+				}else if(parse[i] == '3')
+				{
+					checked[3] = true;
+				}else if(parse[i] == '4')
+				{
+					checked[4] = true;
+				}else if(parse[i] == '5')
+				{
+					checked[5] = true;
+				}else if(parse[i] == '6')
+				{
+					checked[6] = true;
+				}else if(parse[i] == '7')
+				{
+					checked[7] = true;
+				}else if(parse[i] == '8')
+				{
+					checked[8] = true;
+				}else if(parse[i] == '9')
+				{
+					checked[9] = true;
+				}
+			}
+			if((checked[0] && checked[1]  && checked[2]  && checked[3] && checked[4] && checked[5] && checked[6] && checked[7] && checked[8] && checked[9]))
+			{
+				break;
+			}
+			next++;	
+		}
+		n = 0;
+		cout << next << endl;		
+		cin >> n;
+		parse.clear();
+	}
+	return 0;
+}
